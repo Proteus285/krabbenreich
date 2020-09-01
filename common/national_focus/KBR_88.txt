@@ -1,0 +1,812 @@
+focus_tree = {
+	id = 88
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = KBR
+		}
+	}
+	#Focus for Free the crabs
+	focus = {
+		id = KBR_free_the_crabs
+		icon = GFX_goal_unknown
+		x = 56
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_nationalist_spirit }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Stage a group in Latvia
+	focus = {
+		id = KBR_stage_a_group_in_latvia
+		icon = GFX_focus_generic_support_the_left_right
+		x = 17
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_the_military_way }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Swedish Iron
+	focus = {
+		id = KBR_swedish_iron
+		icon = GFX_focus_generic_steel
+		x = 41
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_attack_sweden }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Stage a group in Lithuania
+	focus = {
+		id = KBR_stage_a_group_in_lithuania
+		icon = GFX_focus_generic_support_the_left_right
+		x = 15
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_the_military_way }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for New allies in the North-East
+	focus = {
+		id = KBR_new_allies_in_the_northeast
+		icon = GFX_goal_anschluss
+		x = 38
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_go_for_sweden_and_findland }
+		mutually_exclusive = { focus = KBR_new_enemies_in_the_northeast }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Go for Norway and Denmark
+	focus = {
+		id = KBR_go_for_norway_and_denmark
+		icon = GFX_goal_unknown
+		x = 31
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_interventions_in_scandinavia }
+		mutually_exclusive = { focus = KBR_go_for_sweden_and_findland }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Political Effort
+	focus = {
+		id = KBR_political_effort
+		icon = GFX_goal_generic_demand_territory
+		x = 56
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 120
+		}
+	}
+
+	#Focus for Nationalist Spirit
+	focus = {
+		id = KBR_nationalist_spirit
+		icon = GFX_goal_support_fascism
+		x = 56
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_political_effort }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 8.0 
+}
+		}
+	}
+
+	#Focus for With the Baltic States
+	focus = {
+		id = KBR_with_the_baltic_states
+		icon = GFX_goal_generic_improve_relations
+		x = 19
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_interventions_in_the_baltic_states }
+		mutually_exclusive = { focus = KBR_against_the_baltic_states }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			has_opinion= {
+target = LIT 
+value <+50
+}
+		}
+	}
+
+	#Focus for Against the Baltic States
+	focus = {
+		id = KBR_against_the_baltic_states
+		icon = GFX_goal_generic_territory_or_war
+		x = 25
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_interventions_in_the_baltic_states }
+		mutually_exclusive = { focus = KBR_with_the_baltic_states }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			has_opinion= {
+target = LIT 
+value <-50
+}
+		}
+	}
+
+	#Focus for Preparation for the Baltic War
+	focus = {
+		id = KBR_preparation_for_the_baltic_war
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 25
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_against_the_baltic_states }
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 17
+		}
+	}
+
+	#Focus for The military way
+	focus = {
+		id = KBR_the_military_way
+		icon = GFX_goal_generic_propaganda
+		x = 17
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_with_the_baltic_states }
+		mutually_exclusive = { focus = KBR_the_diplomatic_way }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The diplomatic way
+	focus = {
+		id = KBR_the_diplomatic_way
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 22
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_with_the_baltic_states }
+		mutually_exclusive = { focus = KBR_the_military_way }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Stage a group in Estonia
+	focus = {
+		id = KBR_stage_a_group_in_estonia
+		icon = GFX_focus_generic_support_the_left_right
+		x = 19
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_the_military_way }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for The 2nd Baltic War
+	focus = {
+		id = KBR_the_2nd_baltic_war
+		icon = GFX_goal_generic_attack_allies
+		x = 25
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KBR_preparation_for_the_baltic_war 
+			focus = KBR_against_the_baltic_states 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Interventions in the Baltic States
+	focus = {
+		id = KBR_interventions_in_the_baltic_states
+		icon = GFX_goal_unknown
+		x = 22
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_target_europe }
+		mutually_exclusive = { focus = KBR_interventions_in_scandinavia }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Interventions in Scandinavia
+	focus = {
+		id = KBR_interventions_in_scandinavia
+		icon = GFX_goal_unknown
+		x = 36
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_target_europe }
+		mutually_exclusive = { focus = KBR_interventions_in_the_baltic_states }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Improve realtions with the Baltic States
+	focus = {
+		id = KBR_improve_realtions_with_the_baltic_states
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 22
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_the_diplomatic_way }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Form the unholy allience
+	focus = {
+		id = KBR_form_the_unholy_allience
+		icon = GFX_goal_anschluss
+		x = 20
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KBR_support_the_baltic_fashist_uprising 
+			focus = KBR_improve_realtions_with_the_baltic_states 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Support the baltic fashist uprising
+	focus = {
+		id = KBR_support_the_baltic_fashist_uprising
+		icon = GFX_goal_generic_military_deal
+		x = 17
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KBR_stage_a_group_in_latvia 
+		}
+		prerequisite = { 
+			focus = KBR_stage_a_group_in_lithuania 
+		}
+		prerequisite = { 
+			focus = KBR_stage_a_group_in_estonia 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Interventions in Africa
+	focus = {
+		id = KBR_interventions_in_africa
+		icon = GFX_goal_unknown
+		x = 76
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_target_colonies }
+		mutually_exclusive = { focus = KBR_interventions_in_asia }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Target Colonies
+	focus = {
+		id = KBR_target_colonies
+		icon = GFX_focus_usa_focus_on_asia
+		x = 77
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_nationalist_spirit }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Interventions in Asia
+	focus = {
+		id = KBR_interventions_in_asia
+		icon = GFX_goal_unknown
+		x = 78
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_target_colonies }
+		mutually_exclusive = { focus = KBR_interventions_in_africa }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Target Europe
+	focus = {
+		id = KBR_target_europe
+		icon = GFX_focus_usa_focus_on_europe
+		x = 29
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_nationalist_spirit }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Go for Sweden and Findland
+	focus = {
+		id = KBR_go_for_sweden_and_findland
+		icon = GFX_goal_unknown
+		x = 41
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_interventions_in_scandinavia }
+		mutually_exclusive = { focus = KBR_go_for_norway_and_denmark }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for New allies in the North West
+	focus = {
+		id = KBR_new_allies_in_the_north_west
+		icon = GFX_goal_anschluss
+		x = 33
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_go_for_norway_and_denmark }
+		mutually_exclusive = { focus = KBR_new_enemies_in_the_nothwest }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for New enemies in the Noth-West
+	focus = {
+		id = KBR_new_enemies_in_the_nothwest
+		icon = GFX_goal_generic_alliance
+		x = 29
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_go_for_norway_and_denmark }
+		mutually_exclusive = { focus = KBR_new_allies_in_the_north_west }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Stage a group in Denmark
+	focus = {
+		id = KBR_stage_a_group_in_denmark
+		icon = GFX_focus_generic_support_the_left_right
+		x = 34
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_new_allies_in_the_north_west }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Preperation for the Scandenavic War
+	focus = {
+		id = KBR_preperation_for_the_scandenavic_war
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 29
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_new_enemies_in_the_nothwest }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Attack Norway
+	focus = {
+		id = KBR_attack_norway
+		icon = GFX_goal_generic_attack_allies
+		x = 30
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KBR_new_enemies_in_the_nothwest 
+			focus = KBR_preperation_for_the_scandenavic_war 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Attack Denmark
+	focus = {
+		id = KBR_attack_denmark
+		icon = GFX_goal_generic_attack_allies
+		x = 28
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KBR_new_enemies_in_the_nothwest 
+			focus = KBR_preperation_for_the_scandenavic_war 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for New enemies in the North-East
+	focus = {
+		id = KBR_new_enemies_in_the_northeast
+		icon = GFX_goal_generic_alliance
+		x = 43
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_go_for_sweden_and_findland }
+		mutually_exclusive = { focus = KBR_new_allies_in_the_northeast }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Claim coasts of North-Eastern Scandenavia
+	focus = {
+		id = KBR_claim_coasts_of_northeastern_scandenavia
+		icon = GFX_goal_generic_major_war
+		x = 43
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_new_enemies_in_the_northeast }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Attack Finland
+	focus = {
+		id = KBR_attack_finland
+		icon = GFX_goal_generic_attack_allies
+		x = 44
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_claim_coasts_of_northeastern_scandenavia }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Boost fascism in the Noth-East
+	focus = {
+		id = KBR_boost_fascism_in_the_notheast
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 36
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_improve_realations_with_the_notheast }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Stage a group in Sweden
+	focus = {
+		id = KBR_stage_a_group_in_sweden
+		icon = GFX_focus_generic_support_the_left_right
+		x = 38
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_preperation_for_staging_groups_in_the_northeast }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Stage a group in Finland
+	focus = {
+		id = KBR_stage_a_group_in_finland
+		icon = GFX_focus_generic_support_the_left_right
+		x = 40
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_preperation_for_staging_groups_in_the_northeast }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for A new world order
+	focus = {
+		id = KBR_a_new_world_order
+		icon = GFX_goal_anschluss
+		x = 36
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KBR_support_the_scandinavic_fashist_uprising 
+			focus = KBR_boost_fascism_in_the_notheast 
+			focus = KBR_stage_a_group_in_sweden 
+			focus = KBR_stage_a_group_in_finland 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Stage a group in Norway
+	focus = {
+		id = KBR_stage_a_group_in_norway
+		icon = GFX_focus_generic_support_the_left_right
+		x = 32
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_new_allies_in_the_north_west }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Support the scandinavic fashist uprising
+	focus = {
+		id = KBR_support_the_scandinavic_fashist_uprising
+		icon = GFX_goal_generic_small_arms
+		x = 33
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = KBR_stage_a_group_in_norway 
+		}
+		prerequisite = { 
+			focus = KBR_stage_a_group_in_denmark 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Improve realations with the Noth-East
+	focus = {
+		id = KBR_improve_realations_with_the_notheast
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 36
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_new_allies_in_the_northeast }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Attack Sweden
+	focus = {
+		id = KBR_attack_sweden
+		icon = GFX_goal_generic_attack_allies
+		x = 42
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_claim_coasts_of_northeastern_scandenavia }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Preperation for staging groups in the North-east
+	focus = {
+		id = KBR_preperation_for_staging_groups_in_the_northeast
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 39
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_new_allies_in_the_northeast }
+		mutually_exclusive = { focus = KBR_improve_realations_with_the_notheast }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Iron from Norway
+	focus = {
+		id = KBR_iron_from_norway
+		icon = GFX_focus_generic_steel
+		x = 31
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_attack_norway }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Tungsten from Norway
+	focus = {
+		id = KBR_tungsten_from_norway
+		icon = GFX_focus_generic_tungsten
+		x = 29
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_attack_norway }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Hire researchers from Denmark
+	focus = {
+		id = KBR_hire_researchers_from_denmark
+		icon = GFX_focus_research2
+		x = 27
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_attack_denmark }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Swedisch Tungsten
+	focus = {
+		id = KBR_swedisch_tungsten
+		icon = GFX_focus_generic_tungsten
+		x = 43
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_attack_sweden }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Hire researchers from Finland
+	focus = {
+		id = KBR_hire_researchers_from_finland
+		icon = GFX_focus_research2
+		x = 45
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_attack_finland }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Hire Baltic researchers
+	focus = {
+		id = KBR_hire_baltic_researchers
+		icon = GFX_focus_research2
+		x = 24
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_the_2nd_baltic_war }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Baltic Iron
+	focus = {
+		id = KBR_baltic_iron
+		icon = GFX_focus_generic_steel
+		x = 26
+		y = 7
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_the_2nd_baltic_war }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Hire Scandenavic research teams
+	focus = {
+		id = KBR_hire_scandenavic_research_teams
+		icon = GFX_focus_research2
+		x = 36
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_a_new_world_order }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	#Focus for Hire Balltic research teams
+	focus = {
+		id = KBR_hire_balltic_research_teams
+		icon = GFX_focus_research2
+		x = 20
+		y = 9
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = KBR_form_the_unholy_allience }
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+#End of focuses 
+ }
