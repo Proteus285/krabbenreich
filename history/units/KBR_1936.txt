@@ -1,0 +1,241 @@
+﻿division_template = {
+	name = "Crab Infantry"		# Same for "Active" and "Reserve" Infantry Divisions
+	division_names_group = KBR_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		artillert = { x = 0 y = 0 }  
+	}
+}
+division_template = {
+	name = "Crab Cavalry"  	# Cavalry Division
+	division_names_group = KBR_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }      	# Actually, 2x bicycle cav bns
+		engineer = { x = 0 y = 1 }   
+	}
+}
+division_template = {
+	name = "Motorized Crabs"  		# Motorized Cavalry Brigade
+	division_names_group = KBR_MOT_01
+										# Note: motorized cavalry. Most sources have them truck-equipped.
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+	}
+}
+division_template = {
+	name = "Elite Crabs"			# Same for "Active" and "Reserve" Infantry Divisions
+	division_names_group = KBR_GAR_01 	#TODO make separate namelist for colonial divisions
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+                infantry = { x = 2 y = 0 }
+                infantry = { x = 2 y = 1 }
+                infantry = { x = 2 y = 2 }
+	}
+	priority = 0
+        support = {
+		artillert = { x = 0 y = 0 }
+}
+
+### OOB ###
+units = {
+	##### Crab Army #####
+	# I Corps d'Armée
+	division= {	# "4 Crab Division"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 4
+		}
+		location = 6332
+		division_template = "Crab Infantry"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.5
+
+	}
+
+	# II Corps d'Armée
+	division= {	# "6 Crab Division "
+		division_name = {
+				is_name_ordered = yes
+				name_order = 6
+		}
+		location = 6332
+		division_template = "Crab Infantry"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.5
+
+	}
+
+	# III Corps d'Armée
+	division= {	# "2 Crab Division"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 2
+		}
+		location = 11301  
+		division_template = "Crab Infantry"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	division= {	# "3 Crab Division"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 3
+		}
+		location = 11301
+		division_template = "Crab Infantry"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.5
+
+	}
+
+	# IV Corps d'Armée
+	division= {	# "5 Crab Division"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 5
+		}
+		location = 6222
+		division_template = "Crab Infantry"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.5
+
+	}
+
+	# Corps d'Cavalerie
+	division= {	# "1 Crab Divison"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 530
+		division_template = "Crab Infantry"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.5
+
+	}
+	division= {	# "2 Crab Cavalry"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 2
+		}
+		location = 530  
+		division_template = "Crab Cavalry"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+	division= {	
+		name = "Brigarde of Motorized Crabs"
+		location = 9262
+		division_template = "Motorized Crabs"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.5
+
+	}
+
+	# Groupement K
+	division= {	# "1 Division of Veterans"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 101
+		}
+		location = 3380
+		division_template = "Elite Crabs"		# elite bicycle infantry
+		start_experience_factor = 0.5
+	}
+	division= {	# "1 Crab Cavalry"
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 3380
+		division_template = "Crab Cavalry"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+
+	}
+
+
+	division= {	
+		name = "Crab Mercenary"
+		location = 9483 
+		division_template = "Elite Crabs"
+		force_equipment_variants = { infantry_equipment_0 = { owner = "KBR" } }
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.5
+
+	}
+}
+
+air_wings = {
+	### Crab Airforce -- Brussels (Nivelle)
+	6 = {
+		# 2 Air Company
+		# Consisted of 50 operational Gladiator Is, Hurricanes, CR.42s in 1940
+		# Only had Fairey Fox recon/l bombers that were also used as fighters in 1936, along with trainers
+		fighter_equipment_0 =  {
+			owner = "KBR" 
+			amount = 50
+		}
+	}
+}
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "BEL"
+		}
+		requested_factories = 2
+		progress = 0.52
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "BEL"
+		}
+		requested_factories = 1
+		progress = 0.85
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = fighter_equipment_0
+			creator = "BEL"
+		}
+		requested_factories = 1
+		progress = 0.85
+		efficiency = 100
+	}
+}
